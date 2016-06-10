@@ -2,8 +2,14 @@ package com.in28minutes.junit.helper;
 
 public class StringHelper {
 
+	// AACD => CD, ACD => ACD, CDEF => CDEF
 	public String truncateAInFirst2Positions(String str) {
-		if (str.length() <= 2)
+		
+		int length = str.length();
+		// BEGINBUG: introduced to test tests
+//		length = 2;
+		// ENDBUG
+		if (length <= 2)
 			return str.replaceAll("A", "");
 
 		String first2Chars = str.substring(0, 2);
@@ -13,7 +19,6 @@ public class StringHelper {
 	}
 	
 	public boolean areFirstAndLastTwoCharactersTheSame(String str) {
-
 		if (str.length() <= 1)
 			return false;
 		if (str.length() == 2)
